@@ -1,0 +1,15 @@
+{
+  "name": "evim",
+  "version": "1.0.0",
+  "description": "like vim, slim.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "seaweedman",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11.2.1",
+    "electron-reloader": "^1.2.0"
+  }
+}
