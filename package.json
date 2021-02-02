@@ -4,7 +4,7 @@
   "description": "like vim, slim.",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "electron-forge start --enable-logging",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -17,10 +17,13 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "^11.2.1",
+    "electron-devtools-installer": "^3.1.1",
+    "electron-log": "^4.3.1",
     "electron-reloader": "^1.2.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "highlight.js": "^10.5.0"
   },
   "config": {
     "forge": {

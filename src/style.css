@@ -1,5 +1,31 @@
+html, body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  overflow: hidden;
+  background: #E6E2D8;
+}
+
 #left {
+  height: 100%;
+  width: 20%;
+  background: #BDD99A;
+  float: left;
+  overflow: hidden;
+}
+
+.list-sel {
+  background: #D7EBC5;
 }
 
 #main {
+  float: left;
+  width: 80%;
+  height: 100%;
+}
+
+#main-text {
+  padding: 0px 0px 0px 4px;
+  margin: 0px;
+  font-family: Consolas;
 }
