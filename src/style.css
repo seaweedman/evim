@@ -22,10 +22,16 @@ html, body {
   float: left;
   width: 80%;
   height: 100%;
+  white-space:pre;
 }
 
-#main-text {
+code {
   padding: 0px 0px 0px 4px;
   margin: 0px;
   font-family: Consolas;
+}
+
+.text-num {
+  width: 100px;
+  color: #7c8577;
 }

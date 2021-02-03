@@ -1,5 +1,9 @@
 const fs = require('fs')
+const readline = require('readline')
+const os = require('os')
 let listNode = null
+let focus = 'left'
+let change = false
 
 // 读取文件目录
 let fileStr = fs.readdirSync('.')
@@ -18,9 +22,10 @@ openFile('test.txt')
 
 document.onkeydown = function(event) {
   let e = event || window.event || arguments.callee.caller.arguments[0]
-  let list = document.getElementById('left')
-  if (!listNode) {
+  let list = document.getElementById(focus)
+  if (!listNode || change == true) {
     listNode = list.firstChild
+    change = false
   }
   switch (e.keyCode) {
     case 74: // j 下
@@ -34,8 +39,12 @@ document.onkeydown = function(event) {
       listNode = listNode.previousSibling
       break
     case 72: // h 左
+      focus = 'left'
+      change = true
       break
     case 76: // l 右
+      focus = 'main'
+      change = true
       break
     case 79: // o 打开文件
       openFile(listNode.textContent)
@@ -46,13 +55,33 @@ document.onkeydown = function(event) {
 }
 
 function openFile(fileName) {
-  fs.readFile(fileName, function(err, data) {
+  document.getElementById('main').innerHTML = ''
+  let fRead = fs.createReadStream(fileName)
+
+  let lines = readline.createInterface({
+    input: fRead
+  })
+
+  let num = 1
+  let codeFmt = ''
+  lines.on('line', (line) => {
+    tmp = `<span class='text-num'>${num}</span> <code>${line}</code>`
+    num++
+
+    let dom = document.createElement('div')
+    dom.innerHTML = tmp
+    document.getElementById('main').appendChild(dom)
+  })
+
+  /* lines.on('close', ()=>{
+    document.getElementById('main').innerHTML = codeFmt
+  }) */
+  /* fs.readFile(fileName, function(err, data) {
     if (err) {
       alert('error: can not read file.')
     } else {
-      console.log(data.toString())
       let codeFmt = data.toString()
-      document.getElementById('main-text').innerHTML = codeFmt
+      document.getElementById('main').innerHTML = codeFmt
     }
-  })
+  }) */
 }
