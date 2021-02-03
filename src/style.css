@@ -32,6 +32,22 @@ code {
 }
 
 .text-num {
-  width: 100px;
+  width: 20px;
   color: #7c8577;
+  display: inline-block;
+  text-align: right;
+}
+.code-sel {
+  color: #fff;
+  background: #000;
+}
+#status {
+  text-align: center;
+  color: #fff;
+  background: #000;
+  width: 100px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 999;
 }
